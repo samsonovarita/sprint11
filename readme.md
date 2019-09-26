@@ -1,5 +1,4 @@
-# [samsonovarita/sprint11](https://github.com/samsonovarita/sprint11)
-=========================
+# [samsonovarita/sprint11](https://samsonovarita.github.io/sprint11/
 
 Version: v0.0.1
 

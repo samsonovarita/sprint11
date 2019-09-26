@@ -1,3 +1,7 @@
+import "./index.css";
+
+const serverUrl = NODE_ENV === 'development' ? 'http://praktikum.tk/cohort2' : 'https://praktikum.tk/cohort2';
+
 //объявляем переменные
 const root = document.querySelector('.root');
 const popupButton = document.querySelector('.user-info__button');
@@ -14,7 +18,7 @@ const profileInfo = user.elements.user_info;
 const popName = form.elements.name;
 const popLink = form.elements.link;
 
-class Card {
+export default class Card {
   constructor(name, link) {
     this.name = name;
     this.link = link;
@@ -59,22 +63,7 @@ class Card {
   }
 }
 
-class CardList {
-  constructor (box, cards) { 
-    this.box = box;
-    this.cards = cards; 
-    this.render();
-  }
-
-  addCard(name, link) { 
-    const { cardElement } = new Card(name, link);
-    this.box.appendChild(cardElement);
-  }
-
-  render() {
-    this.cards.forEach((elem) => {this.addCard(elem.name, elem.link)})
-  }
-}
+import default CardList from 'JS/CardList.js';
 
 class Popup {
   constructor(popupLayer) {
@@ -94,7 +83,7 @@ class Popup {
 };
 
 const UserConfig = {
-  baseUrl: 'http://95.216.175.5/cohort2',
+  baseUrl: serverUrl,
   headers: {
     authorization:'89b20bf3-9569-474d-8e08-fe4b08de48a5',
     'Content-Type': 'application/json'

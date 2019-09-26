@@ -1,0 +1,18 @@
+.user-edit__button {
+    /*position: flex;*/
+    right: 0;
+    width: 36px !important;
+    height: 19px !important;
+    font-size: 12px !important;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    margin-top: 17px;
+  }
+  
+  @media screen and (max-width: 980px) {
+    .user-edit__button {
+      position: static;
+      margin-bottom: 40px;
+    }
+  }

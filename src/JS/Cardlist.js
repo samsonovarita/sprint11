@@ -1,4 +1,4 @@
-import Card from '../index.js';
+import Card from './card.js';
 
 export default class CardList {
     constructor (box, cards) { 

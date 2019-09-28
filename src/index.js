@@ -63,7 +63,7 @@ export default class Card {
   }
 }
 
-import default CardList from 'JS/CardList.js';
+import default CardList from './JS/CardList.js';
 
 class Popup {
   constructor(popupLayer) {

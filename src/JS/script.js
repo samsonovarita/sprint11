@@ -16,6 +16,7 @@ const profileInfo = user.elements.user_info;
 const popName = form.elements.name;
 const popLink = form.elements.link;
 
+import Card from './card.js';
 import CardList from './cardlist.js';
 import Popup from './popup.js';
 import Api from './api.js';

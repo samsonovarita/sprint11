@@ -48,8 +48,6 @@ api.getUserData()
   })
   .catch();
 
-//api.postUserInfo('Маргарита Самсонова', 'Начинающий фронтенд')
-
 const [addCardLayer, editUserLayer, imageLayer] = root.querySelectorAll('.popup');
 const popupCard = new Popup(addCardLayer);
 const popupEdit = new Popup(editUserLayer);

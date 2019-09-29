@@ -14,7 +14,7 @@ Link: [samsonovarita/sprint11](https://samsonovarita.github.io/sprint11/)
 ## Stack: JS, CSS, HTML, WebPack, GIT
 
 ## Installation: 
-Version: v0.0.4
+Version: v0.0.5
 
 1. Download archive assembly or  use command: ```git clone git@github.com:matoeltiempo/project.git```
 2. Run installation by terminal: ```npm i```

@@ -32,10 +32,10 @@
 .popup__card_image {
   max-width: 80vw;
   max-height: 80vh;
-};
+}
 
 .popup__error-message {
-  position: absolute;
+  /*position: absolute;*/
   margin-top: 4px;
   color: #FF0000;
   font-style: normal;

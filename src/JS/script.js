@@ -48,7 +48,7 @@ api.getUserData()
   })
   .catch();
 
-api.postUserInfo('Маргарита Самсонова', 'Начинающий фронтенд')
+//api.postUserInfo('Маргарита Самсонова', 'Начинающий фронтенд')
 
 const [addCardLayer, editUserLayer, imageLayer] = root.querySelectorAll('.popup');
 const popupCard = new Popup(addCardLayer);
@@ -117,6 +117,7 @@ function editProfile (event) {
     if (user.elements.user_name.value.length !== 0
         && user.elements.user_info.value.length !== 0) {
         fillFields(profileName, profileAbout);
+        api.postUserInfo(profileName, profileAbout);
       popUpEdit.classList.toggle('popup_is-opened');
     }
   }

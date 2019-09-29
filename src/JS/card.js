@@ -40,7 +40,6 @@ export default class Card {
       placeCard.appendChild(placeCardDescription); 
       placeCardDescription.appendChild(placeCardName); 
       placeCardDescription.appendChild(placeCardLikeBtn); 
-      //container.appendChild(placeCard);
   
     return placeCard;
     }

@@ -1,6 +1,6 @@
 # Sprint 11. Project
 
-Link: [samsonovarita/sprint11](https://samsonovarita.github.io/sprint11/)
+Link: [samsonovarita/mesto](https://samsonovarita.github.io/mesto/)
 
 ## Description: Project of Sprint 11 from Yandex.Praktikum course.
 

@@ -1,4 +1,4 @@
-# [samsonovarita/mesto](https://samsonovarita.github.io/sprint11/)
+# [samsonovarita/mesto](https://samsonovarita.github.io/mesto/)
 =========================
 
 Version: v0.0.1

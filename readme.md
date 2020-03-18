@@ -1,8 +1,8 @@
-# Sprint 11. Project
+# Project "MESTO"
 
 Link: [samsonovarita/mesto](https://samsonovarita.github.io/mesto/)
 
-## Description: Project of Sprint 11 from Yandex.Praktikum course.
+## Description: Project of Yandex.Praktikum course.
 
 ## Project purpose: 
 1. Install webpack for picture and font optimization.

@@ -1,15 +1,12 @@
-# [samsonovarita/mesto](https://samsonovarita.github.io/mesto/)
-=========================
+# Третий проект по курсу Фронтенд-разработка от Яндекс.Практикума "MESTO"
 
-Version: v0.0.1
+Link: [samsonovarita/mesto](https://samsonovarita.github.io/mesto/)
 
-Description: Project of Sprint 11 from Yandex.Praktikum course.
+## Описание проекта
+Проект представляет из себя готовый одно-страничный сайт с картинками, которые загружены на сервер нашей группой. 
 
-Project purpose: 
-1. Install webpack for picture and font optimization.
-2. Optimize CSS-code.
-3. Devide JS code on modules and translate them from ES6 to ES5.
+## Технологии использованные для реализации проекта
+HTML, CSS, GIT
 
-Stack: JS, CSS, HTML, WebPack, GIT
-
-INSTALLATION: Just put some info to the fields
+## Версия проекта
+v0.0.1

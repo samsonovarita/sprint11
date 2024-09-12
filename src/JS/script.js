@@ -1,3 +1,5 @@
+const serverUrl = NODE_ENV === 'development' ? 'http://praktikum.tk/cohort2' : 'https://praktikum.tk/cohort2';
+
 //объявляем переменные
 const root = document.querySelector('.root');
 const popupButton = document.querySelector('.user-info__button');
@@ -14,127 +16,18 @@ const profileInfo = user.elements.user_info;
 const popName = form.elements.name;
 const popLink = form.elements.link;
 
-class Card {
-  constructor(name, link) {
-    this.name = name;
-    this.link = link;
-    this.cardElement = this.create();
-    this.handleRemove = this.remove.bind(this);
-    this.cardElement.addEventListener('click', this.like);
-    this.cardElement.addEventListener('click', this.handleRemove);
-  }
-
-  like() {
-    if (event.target.classList.contains('place-card__like-icon')) {
-      event.target.classList.toggle('place-card__like-icon_liked');
-    }
-  }
-
-  remove() {
-      if (event.target.classList.contains('place-card__delete-icon')) {
-        this.cardElement.remove();
-        this.cardElement.removeEventListener('click', this.like);
-        this.cardElement.removeEventListener('click', this.handleRemove);
-      }
-  }
-          
-  create() { 
-    const placeCard = createNode('div','place-card');
-    const placeCardImage = createNode('div','place-card__image');
-    const placeCardDeleteBtn = createNode('button','place-card__delete-icon');
-    const placeCardDescription = createNode('div','place-card__description');
-    const placeCardName = createNode('h3','place-card__name');
-    const placeCardLikeBtn = createNode('button','place-card__like-icon');
-
-    placeCardImage.style.backgroundImage = `url(${this.link})`;
-    placeCardName.textContent = this.name;
-
-    placeCard.appendChild(placeCardImage); 
-    placeCardImage.appendChild(placeCardDeleteBtn); 
-    placeCard.appendChild(placeCardDescription); 
-    placeCardDescription.appendChild(placeCardName); 
-    placeCardDescription.appendChild(placeCardLikeBtn); 
-
-  return placeCard;
-  }
-}
-
-class CardList {
-  constructor (box, cards) { 
-    this.box = box;
-    this.cards = cards; 
-    this.render();
-  }
-
-  addCard(name, link) { 
-    const { cardElement } = new Card(name, link);
-    this.box.appendChild(cardElement);
-  }
-
-  render() {
-    this.cards.forEach((elem) => {this.addCard(elem.name, elem.link)})
-  }
-}
-
-class Popup {
-  constructor(popupLayer) {
-    this.popup = popupLayer;
-    this.popup.addEventListener('click', event => {
-      if (event.target.classList.contains('popup__close')) this.close();
-    });
-  }
-  open() {
-    this.popup.classList.add('popup_is-opened');
-  }
-  close() {
-    this.popup.classList.remove('popup_is-opened');
-    deleteError();
-    form.reset();
-  }
-};
+import Card from './card.js';
+import CardList from './cardlist.js';
+import Popup from './popup.js';
+import Api from './api.js';
 
 const UserConfig = {
-  baseUrl: 'http://95.216.175.5/cohort2',
+  baseUrl: serverUrl,
   headers: {
     authorization:'89b20bf3-9569-474d-8e08-fe4b08de48a5',
     'Content-Type': 'application/json'
   }
 };
-
-class Api {
-  constructor(config){
-    this.baseUrl = config.baseUrl;
-    this.headers = config.headers;
-  }
-  getResponseJSON(res) {
-    if (res.ok) {
-      return res.json();
-    }
-    return Promise.reject(res.status); 
-  }
-
-  getUserData() {
-    return fetch(`${this.baseUrl}/users/me`, {headers: this.headers}) 
-    .then((res) => this.getResponseJSON(res))
-  }
-
-  getInitialCards(){
-    return fetch(`${this.baseUrl}/cards`, {headers: this.headers}) 
-    .then((res) => this.getResponseJSON(res));
-  }
-
-  postUserInfo(name, about) {
-    fetch(`${this.baseUrl}/users/me`, {
-      method: 'PATCH',
-      headers: this.headers,
-      body: JSON.stringify({
-        name,
-        about
-      })
-    })
-  .catch ((err) => alert(`Ошибка отправки карточки на сервер: ${err}`));
-  }
-}
 
 const api = new Api(UserConfig);
 
@@ -154,8 +47,6 @@ api.getUserData()
     }
   })
   .catch();
-
-api.postUserInfo('Маргарита Самсонова', 'Альтер эго: Никита Якунин')
 
 const [addCardLayer, editUserLayer, imageLayer] = root.querySelectorAll('.popup');
 const popupCard = new Popup(addCardLayer);
@@ -191,12 +82,6 @@ root.addEventListener('click', function (event) {
   }
 };
 
-function createNode(tag, tagClass){
-  const element = document.createElement(tag);
-  element.classList.add(tagClass);
-  return element;
-}
-
 //Задание 1: Открываем/закрываем форму О СЕБЕ
 
 function popupOpenEditForm() {
@@ -230,6 +115,7 @@ function editProfile (event) {
     if (user.elements.user_name.value.length !== 0
         && user.elements.user_info.value.length !== 0) {
         fillFields(profileName, profileAbout);
+        api.postUserInfo(profileName, profileAbout);
       popUpEdit.classList.toggle('popup_is-opened');
     }
   }

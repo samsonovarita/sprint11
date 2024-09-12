@@ -1,13 +1,3 @@
 .popup__form {
   margin-top: 60px;
 }
-
-.popup__error-message {
-  position: absolute;
-  margin-top: 4px;
-  color: #FF0000;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 15px;
-}
